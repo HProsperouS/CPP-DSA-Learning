@@ -3,6 +3,17 @@
 // Input: The input data consists of multiple sets, each set occupies one line. The first number in each line is an integer n (n < 100), indicating the number of values to be counted. This is followed by n real numbers. If n = 0, it indicates the end of input, and that line should not be processed.
 // Output： For each set of input data, output one line with three numbers a, b, c, representing the counts of negative numbers, zero, and positive numbers respectively.   
 
+/* 
+    Sample Input: 
+    6 0 1 2 3 -1 0
+    5 1 2 3 4 0.5
+    0
+    
+    Sample Output:
+    1 2 3
+    0 0 5
+*/
+
 #include <iostream>
 using namespace std;
 
