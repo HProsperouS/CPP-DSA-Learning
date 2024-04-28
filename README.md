@@ -1,2 +1,2 @@
 # CPP-DSA-Learning
-My Data Structure Learning Journey With C++
+My Data Structure Learning Journey
