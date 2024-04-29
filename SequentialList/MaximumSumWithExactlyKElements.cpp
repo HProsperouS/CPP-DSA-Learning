@@ -42,7 +42,7 @@ class Solution {
 public:
     int maximizeSum(vector<int>& nums, int k) {
         int sum = 0;
-        while(k--){
+        while(k){
             int maxIdx = 0;
             for(int i=1; i < nums.size(); i++){
                 if(nums[i] > nums[maxIdx]){
@@ -52,7 +52,7 @@ public:
 
             sum += nums[maxIdx];
             nums[maxIdx] += 1;
-            
+            k--;
         }
         return sum;
     }
