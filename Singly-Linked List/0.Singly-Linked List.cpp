@@ -24,6 +24,9 @@ public:
     ListNode* get(int i);
     void update(int i, eleType value);
     void print();
+    eleType sum();
+    void append(eleType value);
+    void ascInsert(eleType value);
 };
 
 LinkedList::~LinkedList(){
@@ -110,6 +113,39 @@ void LinkedList::print(){
     }
     cout << endl;
 }
+
+eleType LinkedList::sum(){
+    ListNode* curr = head;
+    eleType sum = 0;
+    while(curr != NULL){
+        sum += curr->data;
+        curr = curr->next;
+    }
+    return sum;
+}
+
+void LinkedList::append(eleType value){
+    insert(size, value); // Insert at the end
+}
+
+void LinkedList::ascInsert(eleType value){
+    if(size == 0){
+        insert(0, value);
+        return;
+    }
+
+    for(int i = 0; i < size; i++){
+        if(value <= get(i)->data){
+            insert(i, value);
+            return;
+        }
+    }
+
+    // If the value is greater than all the elements
+    insert(size, value); 
+
+}
+
 
 int main(){
     LinkedList list;
