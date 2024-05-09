@@ -1,2 +1,2 @@
 # CPP-DSA-Learning
-My Data Structure Learning Journey
+My Data Structure & Algorithm Learning Journey
