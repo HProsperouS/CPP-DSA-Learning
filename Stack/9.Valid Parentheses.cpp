@@ -49,7 +49,7 @@ public:
             }
         }
 
-        return true;
+        return stk.empty();
     }
 
     bool isLeft(char c){
