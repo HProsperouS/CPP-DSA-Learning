@@ -11,6 +11,7 @@ private:
 public:
     String();
     String(const char* s);
+    String(const String &s);
     ~String();
     size_t length() const;
     char operator[](size_t index) const;
@@ -32,6 +33,12 @@ String ::String(const char* s) {
     len = strlen(s);
     str = new char[len + 1];
     strcpy(str, s);
+}
+
+String::String(const String &s) {
+    len = s.len;
+    str = new char[len + 1];
+    strcpy(str, s.str);
 }
 
 String::~String() {
@@ -69,7 +76,9 @@ bool String::operator!=(const String &s) const {
 }
 
 String String::copy() const {
-    return String(str);
+    String s(*this);
+    printf("%p %p", s.str, this->str);
+    return s;
 }
 
 String String::operator+(const String &s) {
@@ -98,6 +107,9 @@ int main() {
 
     s = s + "asd";
     cout << s << endl;
+
+    String s2 = s.copy();
+    cout << s2 << endl;
 
     return 0;
 }
