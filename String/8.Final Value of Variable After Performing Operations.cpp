@@ -50,17 +50,11 @@ public:
     int finalValueAfterOperations(vector<string>& operations) {
         int x = 0, len = operations.size();
         for(int i=0; i < len; i++){
-            if(operations[i] == "--X"){
-                --x;
-            }
-            else if(operations[i] == "X--"){
-                x--;
-            } 
-            else if(operations[i] == "--X"){
-                ++x;
-            }
-            else{
+            if(operations[i][1] == '+'){
                 x++;
+            }            
+            else{
+                x--;
             }
         }
         return x;
