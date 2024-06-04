@@ -37,6 +37,8 @@ Constraints:
 */
 class Solution {
 public:
+    // OR: return FALSE only if both nodes are false, else return true;
+    // AND: return TRUE only if both nodes are true, else return false; 
     bool evaluateTree(TreeNode* root) {
         if(root == nullptr) return false;
         if(root->val == 0 || root->val == 1){
