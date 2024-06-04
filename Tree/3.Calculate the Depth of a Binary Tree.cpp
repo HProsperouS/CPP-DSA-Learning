@@ -14,11 +14,18 @@ Constraints:
 	The total number of nodes is <= 10000
 */
 class Solution {
+    int maxDepth;
+    void dfs(TreeNode *root, int depth){
+        if(depth > maxDepth) maxDepth = depth;
+        if(root){
+            dfs(root->left, depth + 1);
+            dfs(root->right, depth + 1);
+        }
+    }
 public:
     int calculateDepth(TreeNode* root) {
-        if(root == nullptr) return 0;
-        int lMax = calculateDepth(root->left);
-        int rMax = calculateDepth(root->right);
-        return 1 + max(lMax,rMax);
+        maxDepth = 0;
+        dfs(root, 0);
+        return maxDepth;
     }
 };
