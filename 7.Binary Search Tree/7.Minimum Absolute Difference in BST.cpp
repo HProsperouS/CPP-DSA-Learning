@@ -20,22 +20,23 @@ Constraints:
 */
 class Solution {
 private:
-    int ret;
-    int pre;
-    void inOrder(TreeNode* node){
-        if(node == NULL){
+    void dfs(TreeNode* root, int& pre, int& ans){
+        if(root == nullptr){
             return;
         }
-        inOrder(node->left);
-        ret = min(ret, node->val - pre);
-        pre = node->val;
-        inOrder(node->right);
+        dfs(root->left, pre, ans);
+        if(pre == -1){
+            pre = root->val;
+        }else{
+            ans = min(ans, root->val - pre);
+            pre = root->val;
+        }
+        dfs(root->right, pre, ans);
     }
 public:
     int getMinimumDifference(TreeNode* root) {
-        ret = 10000000000;
-        pre = -1000000000;
-        inOrder(root);
-        return ret;
+        int ans = INT_MAX, pre = -1;
+        dfs(root, pre, ans);
+        return ans;
     }
 };
