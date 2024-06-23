@@ -33,7 +33,6 @@ public:
     }
     
     int get(string word) {
-        int count = frequencyMap[word];
-        return count;
+        return frequencyMap[word];
     }
 };
