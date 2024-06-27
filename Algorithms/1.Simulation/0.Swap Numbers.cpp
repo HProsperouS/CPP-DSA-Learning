@@ -17,14 +17,24 @@ Constraints:
 class Solution {
 public:
     vector<int> swapNumbers(vector<int>& numbers) {
-        numbers[0] ^= numbers[1];
-        numbers[1] ^= numbers[0]; 
+        /*0 ^ 0 = 0
+        1 ^ 1 = 0
+        0 ^ 1 = 1
+        1 ^ 0 = 1
+        */
+        numbers[0] ^= numbers[1];  // 1 ^ 2 = 3
+        numbers[1] ^= numbers[0];  // 3 ^ 2 = 1
         /*
             numbers[1] = (numbers[0] ^ numbers[1] ^ numbers[1])
-            -> numbers[1] = (numbers[0] ^ 0) 
-
+            -> numbers[1] = (1 ^ 0) 
+            -> numbers[1] = 1
         */
         numbers[0] ^= numbers[1];
+        /*
+            numbers[0] = (numbers[0] ^ numbers[0] ^ numbers[1]);
+            -> numbers[0] = ( 0 ^ 2)
+            -> numbers[0] = 2
+        */
         return numbers;
     }
 };
