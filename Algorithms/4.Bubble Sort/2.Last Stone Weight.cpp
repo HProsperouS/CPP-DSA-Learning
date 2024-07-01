@@ -54,7 +54,6 @@ public:
 
             if (v || stones.size() ==0) {
                 stones.push_back(v); // 结果不为0，添加新石头
-                std::sort(stones.begin(), stones.end()); // 重新排序
             }
         }
         return stones[0];
